@@ -22,9 +22,10 @@ import users from "../data/users.js";
 
 
 const formatUser = (title) => {
-    const names = users.map(user => user.name);
-    const hasilFormat = names.map((name) => `${title} ${name}`);
-    return new Promise((resolve, reject) => setTimeout(() => resolve(hasilFormat), 3000));
+    return new Promise(function (resolve, reject) {
+        const names = users.map(user => user.name);
+        setTimeout(() => resolve(names.map((name) => `${title} ${name}`)), 3000)
+    });
 };
 
 
@@ -38,8 +39,7 @@ const formatUser = (title) => {
  */
 
 const findByName = (name) => {
-    const result = users.find((user) => user.name == name);
-    return new Promise((resolve, reject) => setTimeout(() => resolve(result), 2000));
+    return new Promise((resolve, reject) => setTimeout(() => resolve(users.find((user) => user.name == name)), 2000));
 };
 
 /**
@@ -57,8 +57,7 @@ const findByName = (name) => {
  * - Gunakan promise untuk handle asynchronous.
  */
 const filterByMajor = (major) => {
-    const result = users.filter((user) => user.major == major);
-    return new Promise((resolve, reject) => setTimeout(() => resolve(result), 4000));
+    return new Promise((resolve, reject) => setTimeout(() => resolve(users.filter((user) => user.major == major)), 4000));
 };
 
 /**
